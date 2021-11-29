@@ -28,30 +28,33 @@ public class Calculadora extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        labelPeso = new javax.swing.JLabel();
         pesoCarta = new javax.swing.JSpinner();
         envio = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
+        labelEnvio = new javax.swing.JLabel();
         certificado = new javax.swing.JCheckBox();
         recibo = new javax.swing.JCheckBox();
         valorDeclarado = new javax.swing.JCheckBox();
         jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
+        labelDestino = new javax.swing.JLabel();
         calculo = new javax.swing.JLabel();
         calcular = new javax.swing.JButton();
+        paquete = new javax.swing.JComboBox<>();
+        labelPaquete = new javax.swing.JLabel();
+        labelPrecioProducto = new javax.swing.JLabel();
         valor = new javax.swing.JSpinner();
-        jLabel4 = new javax.swing.JLabel();
+        labelCertificado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setText("Peso de la carta");
+        labelPeso.setText("Peso de la carta");
 
         pesoCarta.setModel(new javax.swing.SpinnerNumberModel(1, 1, 2000, 1));
 
         envio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Envio estandar", "Envio urgente" }));
 
-        jLabel2.setText("Tipo de envio");
+        labelEnvio.setText("Tipo de envio");
 
         certificado.setLabel("Correo certificado");
         certificado.addActionListener(new java.awt.event.ActionListener() {
@@ -73,7 +76,7 @@ public class Calculadora extends javax.swing.JFrame {
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nacional" }));
 
-        jLabel3.setText("Destino del envio");
+        labelDestino.setText("Destino del envio");
 
         calcular.setText("Calcular");
         calcular.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -82,82 +85,100 @@ public class Calculadora extends javax.swing.JFrame {
             }
         });
 
-        valor.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3000, 50));
-        valor.setEnabled(false);
+        paquete.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carta", "Tarjeta postal" }));
 
-        jLabel4.setText("Precio del producto");
+        labelPaquete.setText("Tipo de paquete");
+
+        labelPrecioProducto.setText("Precio del producto");
+        labelPrecioProducto.setVisible(false);
+
+        valor.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3000, 50));
+        valor.setVisible(false);
+
+        labelCertificado.setText("Escoja si su correo es certificado");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(calculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(calcular, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(pesoCarta)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(envio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(certificado)
+                .addContainerGap(48, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(recibo)
-                            .addComponent(valorDeclarado))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(17, 17, 17))
+                            .addComponent(certificado)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(recibo)
+                                    .addComponent(valorDeclarado)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(19, 19, 19)
+                                        .addComponent(labelPrecioProducto)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(labelCertificado)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelPaquete)
+                                    .addComponent(paquete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(53, 53, 53)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelEnvio)
+                                    .addComponent(envio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(51, 51, 51)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelDestino)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(pesoCarta)
+                                .addComponent(labelPeso)))
+                        .addGap(41, 41, 41))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(calculo, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addComponent(calcular, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(envio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(certificado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(recibo)
-                            .addComponent(jLabel4))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelPaquete)
+                            .addComponent(labelDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(valorDeclarado)
-                            .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(envio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(paquete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(pesoCarta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(labelCertificado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addComponent(certificado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(recibo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(labelPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(pesoCarta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(valorDeclarado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPrecioProducto))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(calculo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(calcular))
-                .addGap(28, 28, 28))
+                .addContainerGap())
         );
 
         pack();
@@ -178,6 +199,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void calcularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calcularMouseClicked
         String sEnvio = envio.getSelectedItem().toString();
+        String sPaquete = paquete.getSelectedItem().toString();
         int getPesoCarta = (int) pesoCarta.getValue();
         int precioValor = (int) valor.getValue();
         double resultado = 0;
@@ -211,7 +233,7 @@ public class Calculadora extends javax.swing.JFrame {
             } else {
                 sePasaDePeso = true;
             }
-        } else if (sEnvio.equals("Envio estandar") && certificado.isSelected()) {
+        } else if (sEnvio.equals("Envio estandar") && certificado.isSelected() && sPaquete.equals("Carta")) {
             if (getPesoCarta <= 20) {
                 resultado = 4.15;
             } else if (getPesoCarta > 20 && getPesoCarta <= 50) {
@@ -227,7 +249,7 @@ public class Calculadora extends javax.swing.JFrame {
             } else {
                 sePasaDePeso = true;
             }
-        } else if (sEnvio.equals("Envio estandar")) {
+        } else if (sEnvio.equals("Envio estandar") && !certificado.isSelected()) {
             if (getPesoCarta <= 20) {
                 resultado = 0.70;
             } else if (getPesoCarta > 20 && getPesoCarta <= 50) {
@@ -269,9 +291,11 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void valorDeclaradoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_valorDeclaradoMouseClicked
         if (valorDeclarado.isSelected()) {
-            valor.setEnabled(true);
+            labelPrecioProducto.setVisible(true);
+            valor.setVisible(true);
         } else {
-            valor.setEnabled(false);
+            labelPrecioProducto.setVisible(false);
+            valor.setVisible(false);
         }
     }//GEN-LAST:event_valorDeclaradoMouseClicked
 
@@ -316,10 +340,13 @@ public class Calculadora extends javax.swing.JFrame {
     private javax.swing.JCheckBox certificado;
     private javax.swing.JComboBox<String> envio;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel labelCertificado;
+    private javax.swing.JLabel labelDestino;
+    private javax.swing.JLabel labelEnvio;
+    private javax.swing.JLabel labelPaquete;
+    private javax.swing.JLabel labelPeso;
+    private javax.swing.JLabel labelPrecioProducto;
+    private javax.swing.JComboBox<String> paquete;
     private javax.swing.JSpinner pesoCarta;
     private javax.swing.JCheckBox recibo;
     private javax.swing.JSpinner valor;
